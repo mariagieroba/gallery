@@ -1,0 +1,8 @@
+<div class="container">
+    <input [(ngModel)]="findName" placeholder="search by name">
+    <app-nail-polish-item
+            *ngFor="let nailPolishEl of nailpolishs | filter: findName; let i = index"
+            {{ nailPolishEl }}
+            {{i}}
+    ></app-nail-polish-item>
+</div>
