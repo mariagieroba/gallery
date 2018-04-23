@@ -1,8 +1,15 @@
-<div class="container">
-    <input [(ngModel)]="findName" placeholder="search by name">
-    <app-nail-polish-item
-            *ngFor="let nailPolishEl of nailpolishs | filter: findName; let i = index"
-            {{ nailPolishEl }}
-            {{i}}
-    ></app-nail-polish-item>
+<div class="row">
+    <div class="col-lg-12">
+        <nav> <button class="btn  btn-info" [class.active]="filterBy === 'all'" (click)="filterBy='all'">All</button>
+            <button class="btn  btn-info" [class.active]="filterBy === 'gelike'" (click)="filterBy='gelike'">Gelike</button>
+            <button class="btn  btn-info" [class.active]="filterBy === 'infini'" (click)="filterBy='infini'">Infini</button></nav>
+    </div>
+    <ul id="thumbnailsList">
+        <li *ngFor="let nailPolish of (visibleImages | filterSeries:filterBy)">
+            <a [routerLink]="['/polish', nailPolish.id]">
+            <img src="{{nailPolish.imagePath}}" class="tn" width="200" height="160">
+            </a>
+        </li>
+    </ul>
+
 </div>

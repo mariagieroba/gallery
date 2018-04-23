@@ -1,3 +1,12 @@
-<p>
-  nail-polish-detail works!
-</p>
+<div class="row">1
+    <div class="col-md-12">
+        <div [ngStyle]=" {'background-image': 'url(' + nailPolish.imagePath + ''}" class="img-container"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <span id="name">
+            {{ nailPolish.name }}
+        </span>
+    </div>
+</div>

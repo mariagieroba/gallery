@@ -8,12 +8,13 @@ import {HeaderComponent} from './header/header.component';
 import {GalleryComponent} from './gallery/gallery.component';
 import {NailPolishComponent} from './gallery/nail-polish/nail-polish.component';
 import {NailPolishDetailComponent} from './gallery/nail-polish/nail-polish-detail/nail-polish-detail.component';
-import {NailPolishEditComponent} from './gallery/nail-polish/nail-polish-edit/nail-polish-edit.component';
-import {NailPolishItemComponent} from './gallery/nail-polish-item/nail-polish-item.component';
+
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
-import {NailPolishService} from './gallery/nail-polish.service';
-import { FilterPipe } from './filter.pipe';
+import {NailPolishService} from './gallery/nail-polish/shared/nail-polish.service';
+import {FilterSeriesPipe} from './gallery/nail-polish/shared/filterSeries.pipe';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './routes';
 
 
 @NgModule({
@@ -24,17 +25,17 @@ import { FilterPipe } from './filter.pipe';
         GalleryComponent,
         NailPolishComponent,
         NailPolishDetailComponent,
-        NailPolishEditComponent,
-        NailPolishItemComponent,
-        FilterPipe
+        FilterSeriesPipe
+        // FilterSeriesPipe
 
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot(appRoutes)
     ],
-    providers: [NailPolishService],
+    providers: [NailPolishService, FilterSeriesPipe],
     bootstrap: [AppComponent]
 })
 export class AppModule {
