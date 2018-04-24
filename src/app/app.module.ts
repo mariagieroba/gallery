@@ -15,6 +15,8 @@ import {NailPolishService} from './gallery/nail-polish/shared/nail-polish.servic
 import {FilterSeriesPipe} from './gallery/nail-polish/shared/filterSeries.pipe';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
+import {Globals} from './gallery/nail-polish/shared/globals';
+import {FilterService} from './gallery/nail-polish/shared/filter.service';
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import {appRoutes} from './routes';
         HttpModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [NailPolishService, FilterSeriesPipe],
+    providers: [Globals, NailPolishService, FilterSeriesPipe, FilterService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

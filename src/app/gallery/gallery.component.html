@@ -12,4 +12,13 @@
         </li>
     </ul>
 
+    <div *ngIf="globals.variable" class="alert alert-success">{{ globals.variable}}</div>
 </div>
+
+<ul>
+    <li *ngFor="let nailPolish of (visibleImages | filterSeries: globals.variable)">
+        <a [routerLink]="['/polish', nailPolish.id]">
+            <img src="{{nailPolish.imagePath}}" class="tn" width="200" height="160">
+        </a>
+    </li>
+</ul>
