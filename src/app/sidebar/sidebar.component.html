@@ -1,0 +1,38 @@
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <h3>Filtruj</h3>
+        </li>
+        <li>
+            <img src="http://npac.pl/img/kabos.png" alt=" Kabos cosmetic" width="200"/>
+        </li>
+        <li>
+            Wybierz serię: <br/>
+            <button class="btn  btn-info" (click)="globals.variable='infini'">Infini</button>
+            <button class="btn  btn-info" (click)="globals.variable='gelike'">Gelike</button>
+        </li>
+        <li *ngIf="globals.variable === 'infini'">
+
+        <!--<span *ngFor="let infinis of infiniNR, let i = index">-->
+            <!--<label><input type="checkbox" name="i{{i}}">{{infinis}}</label>-->
+        <!--</span>-->
+
+        </li>
+        <ng-select [items]="nailpolish$1 | async"
+                   [multiple]="true"
+                   [closeOnSelect]="false"
+                   bindLabel="name"
+                   [(ngModel)]="selectedNailPolih1"
+        >
+        </ng-select>
+        <li>
+        <li *ngIf="globals.variable === 'gelike'">
+        <span *ngFor="let gelikes of gelikeNM,  let i = index">
+            <label><input type="checkbox" name="g{{i}}">{{gelikes}}</label>
+        </span>
+
+        </li>
+
+    </ul>
+
+</div>
